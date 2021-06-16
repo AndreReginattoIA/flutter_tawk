@@ -7,24 +7,18 @@ class TawkVisitor {
   final String email;
 
   /// [Secure mode](https://developer.tawk.to/jsapi/#SecureMode).
-  final String hash;
+  final String? hash;
 
   TawkVisitor({
-    this.name,
-    this.email,
+    required this.name,
+    required this.email,
     this.hash,
   });
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-
-    if (name != null) {
-      data['name'] = name;
-    }
-
-    if (email != null) {
-      data['email'] = email;
-    }
+    data['name'] = name;
+    data['email'] = email;
 
     if (hash != null) {
       data['hash'] = hash;
